@@ -26,5 +26,5 @@ public class ConnectDB {
 			}
 		}
 	}
-
+// đồ án Java Như cặc
 }
