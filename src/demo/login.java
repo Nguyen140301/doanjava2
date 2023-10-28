@@ -116,35 +116,32 @@ public class login extends JFrame {
 				login_actionPerformed(e);
 			}
 		});
+		
 		login.setForeground(Color.CYAN);
 		login.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		login.setBackground(Color.GREEN);
-		login.setBounds(128, 173, 191, 49);
+		login.setBounds(268, 171, 191, 49);
 		panel_1.add(login);
 		
 		
 	}
+	
 	protected void login_actionPerformed(ActionEvent e) {
-		
 		String tdn = username.getText();
 		String mk = new String(password.getPassword());
 		AccountModel accountModel = new AccountModel();
 		for(Account account:accountModel.findAll()) {
-			if (account.getName().equalsIgnoreCase(tdn)) {
-				if (BCrypt.checkpw(mk, account.getPass())) {
-					data.put("username", account.getName());
+			if (account.getName().equalsIgnoreCase(tdn)&&account.getPass().equalsIgnoreCase(mk)) {
+				
 					home home = new home();
 					home.setVisible(true);
 					this.setVisible(false);
-				}
 				
+				
+			}else {
+				JOptionPane.showMessageDialog(null, "invalid");
 			}
 			
 		}
-		
-
-		
-		
 	}
-	
 }
