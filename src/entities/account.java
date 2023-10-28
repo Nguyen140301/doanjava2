@@ -1,4 +1,4 @@
-package entitis;
+package entities;
 
 public class account {
 	private String name;

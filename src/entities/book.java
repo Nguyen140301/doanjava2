@@ -1,4 +1,4 @@
-package entitis;
+package entities;
 
 public class book {
 	private int id;
