@@ -9,7 +9,7 @@ import javax.swing.border.EmptyBorder;
 import org.mindrot.jbcrypt.BCrypt;
 
 
-import entities.account;
+import entities.Account;
 import models.AccountModel;
 
 import javax.swing.JScrollPane;
@@ -39,7 +39,7 @@ public class login extends JFrame {
 	private JTextField username;
 	private JPasswordField password;
 	private Map<String, Object> data = new HashMap<String, Object>();
-	private List<account> accounts;
+	private List<Account> accounts;
 	/**
 	 * Launch the application.
 	 */
@@ -129,7 +129,7 @@ public class login extends JFrame {
 		String tdn = username.getText();
 		String mk = new String(password.getPassword());
 		AccountModel accountModel = new AccountModel();
-		for(account account:accountModel.findAll()) {
+		for(Account account:accountModel.findAll()) {
 			if (account.getName().equalsIgnoreCase(tdn)) {
 				if (BCrypt.checkpw(mk, account.getPass())) {
 					data.put("username", account.getName());

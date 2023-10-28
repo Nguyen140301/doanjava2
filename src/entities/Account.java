@@ -1,6 +1,6 @@
 package entities;
 
-public class account {
+public class Account {
 	private String name;
 	private String pass;
 	public String getName() {
@@ -15,12 +15,12 @@ public class account {
 	public void setPass(String pass) {
 		this.pass = pass;
 	}
-	public account(String name, String pass) {
+	public Account(String name, String pass) {
 		super();
 		this.name = name;
 		this.pass = pass;
 	}
-	public account() {
+	public Account() {
 		super();
 	}
 	

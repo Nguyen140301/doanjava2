@@ -2,7 +2,7 @@ package entities;
 
 import java.util.Date;
 
-public class details {
+public class Details {
 	private int id_book;
 	private String callnumber;
 	private String isbn;
@@ -73,7 +73,7 @@ public class details {
 	public void setIssue_status(boolean issue_status) {
 		this.issue_status = issue_status;
 	}
-	public details(int id_book, String callnumber, String isbn, String title, String author, int id_user,
+	public Details(int id_book, String callnumber, String isbn, String title, String author, int id_user,
 			String name_user, Date check_out_date, Date due_date, boolean issue_status) {
 		super();
 		this.id_book = id_book;
@@ -87,7 +87,7 @@ public class details {
 		this.due_date = due_date;
 		this.issue_status = issue_status;
 	}
-	public details() {
+	public Details() {
 		super();
 	}
 	

@@ -1,6 +1,6 @@
 package entities;
 
-public class book {
+public class Book {
 	private int id;
 	private String callnumber;
 	private String isbn;
@@ -36,7 +36,7 @@ public class book {
 	public void setAuthor(String author) {
 		this.author = author;
 	}
-	public book(int id, String callnumber, String isbn, String title, String author) {
+	public Book(int id, String callnumber, String isbn, String title, String author) {
 		super();
 		this.id = id;
 		this.callnumber = callnumber;
@@ -44,7 +44,7 @@ public class book {
 		this.title = title;
 		this.author = author;
 	}
-	public book() {
+	public Book() {
 		super();
 	}
 	
