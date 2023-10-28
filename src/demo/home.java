@@ -27,9 +27,7 @@ public class home extends JFrame {
 
 	private JPanel contentPane;
 	private JPanel panel_1;
-	private JButton xemyc;
 	private Map<String, Object> data=new HashMap<String, Object>();
-	private JButton btnNewButton;
 
 	/**
 	 * Launch the application.
@@ -64,7 +62,12 @@ public class home extends JFrame {
 		contentPane.add(panel, BorderLayout.WEST);
 		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 		
-		JButton in4 = new JButton("Information account");
+		JButton in4 = new JButton("Information users");
+		in4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				in4_actionPerformed(e);
+			}
+		});
 		
 		in4.setBackground(Color.RED);
 		in4.setForeground(new Color(34, 57, 100));
@@ -72,22 +75,6 @@ public class home extends JFrame {
 		in4.setContentAreaFilled(false);
 		in4.setBorderPainted(false);
 		panel.add(in4);
-		
-		JButton request = new JButton("Request");
-		
-		request.setForeground(Color.RED);
-		request.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		request.setContentAreaFilled(false);
-		request.setBorderPainted(false);
-		panel.add(request);
-		
-		xemyc = new JButton("xem yeu cau");
-		
-		xemyc.setBorderPainted(false);
-		xemyc.setBackground(Color.GRAY);
-		xemyc.setForeground(Color.YELLOW);
-		xemyc.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		panel.add(xemyc);
 		
 		JButton Exit = new JButton("Exit");
 		Exit.addActionListener(new ActionListener() {
@@ -101,14 +88,6 @@ public class home extends JFrame {
 		Exit.setForeground(Color.GREEN);
 		Exit.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		panel.add(Exit);
-		
-		btnNewButton = new JButton("Update");
-		
-		btnNewButton.setBorderPainted(false);
-		btnNewButton.setBackground(Color.LIGHT_GRAY);
-		btnNewButton.setForeground(Color.MAGENTA);
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		panel.add(btnNewButton);
 		
 		panel_1 = new JPanel();
 		contentPane.add(panel_1, BorderLayout.CENTER);
@@ -126,4 +105,11 @@ public class home extends JFrame {
 		this.setVisible(false);
 	}
 	
+	protected void in4_actionPerformed(ActionEvent e) {
+		in4 tt = new in4(data);
+		panel_1.removeAll();
+		panel_1.revalidate();
+		panel_1.add(tt);
+		panel_1.setVisible(true);
+	}
 }
