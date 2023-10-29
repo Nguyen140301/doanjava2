@@ -168,12 +168,9 @@ public class login extends JFrame {
 		login.setBounds(84, 365, 477, 40);
 		panel.add(login);
 		
-		
 	}
 	
-
 	protected void do_login_actionPerformed(ActionEvent e) {
-		
 		String tdn = username.getText();
 		String mk = new String(password.getPassword());
 		AccountModel accountModel = new AccountModel();
@@ -183,8 +180,6 @@ public class login extends JFrame {
 					home home = new home();
 					home.setVisible(true);
 					this.setVisible(false);
-				
-				
 			}else {
 				JOptionPane.showMessageDialog(null, "invalid");
 			}
