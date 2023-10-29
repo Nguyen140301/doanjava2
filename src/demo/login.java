@@ -32,14 +32,21 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.awt.event.ActionEvent;
+import javax.swing.SwingConstants;
+import javax.swing.ImageIcon;
+import javax.swing.UIManager;
+import javax.swing.JCheckBox;
+import javax.swing.border.LineBorder;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.TitledBorder;
 
 public class login extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField username;
-	private JPasswordField password;
 	private Map<String, Object> data = new HashMap<String, Object>();
 	private List<Account> accounts;
+	private JTextField username;
+	private JPasswordField password;
 	/**
 	 * Launch the application.
 	 */
@@ -61,72 +68,112 @@ public class login extends JFrame {
 	 */
 	public login() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 761, 566);
+		setBounds(100, 100, 709, 566);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
-		contentPane.setLayout(new BorderLayout(0, 0));
+		contentPane.setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(Color.GREEN);
-		contentPane.add(panel, BorderLayout.NORTH);
+		panel.setFont(new Font("Tahoma", Font.PLAIN, 27));
+		panel.setBackground(new Color(0, 128, 255));
+		panel.setBounds(0, 0, 693, 527);
+		contentPane.add(panel);
+		panel.setLayout(null);
 		
-		JTextPane txtpnLogin = new JTextPane();
-		txtpnLogin.setEditable(false);
-		txtpnLogin.setForeground(Color.RED);
-		txtpnLogin.setBackground(Color.GREEN);
-		txtpnLogin.setFont(new Font("STLiti", Font.BOLD | Font.ITALIC, 65));
-		txtpnLogin.setText("Login");
-		panel.add(txtpnLogin);
+		JLabel lblNewLabel = new JLabel("Login");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setForeground(new Color(255, 255, 255));
+		lblNewLabel.setFont(new Font("Segoe UI", Font.PLAIN, 36));
+		lblNewLabel.setBounds(10, 22, 653, 49);
+		panel.add(lblNewLabel);
 		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBackground(Color.CYAN);
-		contentPane.add(panel_1, BorderLayout.CENTER);
-		panel_1.setLayout(null);
+		JLabel lblNewLabel_1 = new JLabel(" Hello! Let't get Started");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblNewLabel_1.setForeground(new Color(255, 255, 255));
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1.setBounds(10, 83, 653, 21);
+		panel.add(lblNewLabel_1);
 		
-		JTextPane txtpnUsername = new JTextPane();
-		txtpnUsername.setEditable(false);
-		txtpnUsername.setBackground(Color.CYAN);
-		txtpnUsername.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		txtpnUsername.setText("Username:");
-		txtpnUsername.setBounds(147, 46, 125, 36);
-		panel_1.add(txtpnUsername);
+		JLabel lblNewLabel_2 = new JLabel("Username");
+		lblNewLabel_2.setForeground(new Color(255, 255, 255));
+		lblNewLabel_2.setBackground(new Color(240, 240, 240));
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNewLabel_2.setBounds(84, 115, 106, 40);
+		panel.add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_3 = new JLabel("________________________________________________________");
+		lblNewLabel_3.setForeground(new Color(255, 255, 255));
+		lblNewLabel_3.setBounds(84, 178, 419, 14);
+		panel.add(lblNewLabel_3);
+		
+		JLabel lblNewLabel_4 = new JLabel("");
+		lblNewLabel_4.setIcon(new ImageIcon(login.class.getResource("/asb/ii.png")));
+		lblNewLabel_4.setBounds(513, 133, 56, 71);
+		panel.add(lblNewLabel_4);
+		
+		JLabel lblNewLabel_2_1 = new JLabel("Password");
+		lblNewLabel_2_1.setForeground(Color.WHITE);
+		lblNewLabel_2_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNewLabel_2_1.setBackground(UIManager.getColor("Button.background"));
+		lblNewLabel_2_1.setBounds(84, 219, 106, 40);
+		panel.add(lblNewLabel_2_1);
+		
+		JLabel lblNewLabel_4_1 = new JLabel("");
+		lblNewLabel_4_1.setIcon(new ImageIcon(login.class.getResource("/asb/yyy.png")));
+		lblNewLabel_4_1.setBounds(513, 260, 48, 49);
+		panel.add(lblNewLabel_4_1);
+		
+		JCheckBox chckbxNewCheckBox = new JCheckBox("Remember Password ?");
+		chckbxNewCheckBox.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		chckbxNewCheckBox.setBackground(new Color(0, 128, 255));
+		chckbxNewCheckBox.setForeground(new Color(255, 255, 255));
+		chckbxNewCheckBox.setBounds(84, 316, 159, 23);
+		panel.add(chckbxNewCheckBox);
 		
 		username = new JTextField();
-		username.setBounds(303, 46, 249, 36);
-		panel_1.add(username);
+		username.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		username.setForeground(new Color(255, 255, 255));
+		username.setBorder(new LineBorder(new Color(0, 128, 255)));
+		username.setBackground(new Color(0, 128, 255));
+		username.setSelectionColor(new Color(0, 128, 255));
+		username.setSelectedTextColor(new Color(0, 128, 255));
+		username.setBounds(84, 166, 378, 20);
+		panel.add(username);
 		username.setColumns(10);
 		
-		JTextPane txtpnPassword = new JTextPane();
-		txtpnPassword.setEditable(false);
-		txtpnPassword.setBackground(Color.CYAN);
-		txtpnPassword.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		txtpnPassword.setText("Password:");
-		txtpnPassword.setBounds(147, 109, 125, 36);
-		panel_1.add(txtpnPassword);
+		JLabel lblNewLabel_3_1 = new JLabel("________________________________________________________");
+		lblNewLabel_3_1.setForeground(Color.WHITE);
+		lblNewLabel_3_1.setBounds(84, 283, 419, 14);
+		panel.add(lblNewLabel_3_1);
 		
 		password = new JPasswordField();
-		password.setBounds(303, 109, 249, 36);
-		panel_1.add(password);
+		password.setForeground(new Color(255, 255, 255));
+		password.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		password.setBorder(new LineBorder(new Color(0, 128, 255)));
+		password.setBackground(new Color(0, 128, 255));
+		password.setBounds(84, 270, 338, 20);
+		panel.add(password);
 		
-		JButton login = new JButton("Login");
+		JButton login = new JButton("LOGIN");
 		login.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				login_actionPerformed(e);
+				do_login_actionPerformed(e);
 			}
 		});
-		
-		login.setForeground(Color.CYAN);
-		login.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		login.setBackground(Color.GREEN);
-		login.setBounds(268, 171, 191, 49);
-		panel_1.add(login);
+		login.setBorder(new LineBorder(new Color(0, 128, 255)));
+		login.setForeground(new Color(0, 128, 255));
+		login.setFont(new Font("Segoe UI", Font.BOLD, 23));
+		login.setBounds(84, 365, 477, 40);
+		panel.add(login);
 		
 		
 	}
 	
-	protected void login_actionPerformed(ActionEvent e) {
+
+	protected void do_login_actionPerformed(ActionEvent e) {
+		
 		String tdn = username.getText();
 		String mk = new String(password.getPassword());
 		AccountModel accountModel = new AccountModel();
