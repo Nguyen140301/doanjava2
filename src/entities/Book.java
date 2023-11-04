@@ -2,7 +2,6 @@ package entities;
 
 public class Book {
 	private int id;
-	private String callnumber;
 	private String isbn;
 	private String title;
 	private String author;
@@ -11,12 +10,6 @@ public class Book {
 	}
 	public void setId(int id) {
 		this.id = id;
-	}
-	public String getCallnumber() {
-		return callnumber;
-	}
-	public void setCallnumber(String callnumber) {
-		this.callnumber = callnumber;
 	}
 	public String getIsbn() {
 		return isbn;
@@ -36,10 +29,9 @@ public class Book {
 	public void setAuthor(String author) {
 		this.author = author;
 	}
-	public Book(int id, String callnumber, String isbn, String title, String author) {
+	public Book(int id, String isbn, String title, String author) {
 		super();
 		this.id = id;
-		this.callnumber = callnumber;
 		this.isbn = isbn;
 		this.title = title;
 		this.author = author;

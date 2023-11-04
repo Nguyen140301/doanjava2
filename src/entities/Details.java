@@ -12,7 +12,7 @@ public class Details {
 	private String name_user;
 	private Date check_out_date;
 	private Date due_date;
-	private boolean issue_status;
+	private String issue_status;
 	public int getId_book() {
 		return id_book;
 	}
@@ -67,14 +67,14 @@ public class Details {
 	public void setDue_date(Date due_date) {
 		this.due_date = due_date;
 	}
-	public boolean isIssue_status() {
+	public String Issue_status() {
 		return issue_status;
 	}
-	public void setIssue_status(boolean issue_status) {
+	public void setIssue_status(String issue_status) {
 		this.issue_status = issue_status;
 	}
 	public Details(int id_book, String callnumber, String isbn, String title, String author, int id_user,
-			String name_user, Date check_out_date, Date due_date, boolean issue_status) {
+			String name_user, Date check_out_date, Date due_date, String issue_status) {
 		super();
 		this.id_book = id_book;
 		this.callnumber = callnumber;
@@ -86,6 +86,9 @@ public class Details {
 		this.check_out_date = check_out_date;
 		this.due_date = due_date;
 		this.issue_status = issue_status;
+	}
+	public String getIssue_status() {
+		return issue_status;
 	}
 	public Details() {
 		super();

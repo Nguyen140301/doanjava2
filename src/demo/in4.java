@@ -53,7 +53,7 @@ public class in4 extends JPanel {
 		add(panel, BorderLayout.CENTER);
 		panel.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Information Account");
+		JLabel lblNewLabel = new JLabel("Information Users");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
 		lblNewLabel.setBounds(296, 26, 274, 47);
 		panel.add(lblNewLabel);
