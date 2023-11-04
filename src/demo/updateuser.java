@@ -29,6 +29,10 @@ public class updateuser extends JFrame {
 	private JTextField address;
 	private JTextField phone;
 	private Map<String, Object> data;
+	private JLabel idd;
+	private JLabel namee;
+	private JLabel addresss;
+	private JLabel phonee;
 
 	/**
 	 * Launch the application.
@@ -62,21 +66,21 @@ public class updateuser extends JFrame {
 		lblNewLabel.setBounds(282, 10, 178, 84);
 		contentPane.add(lblNewLabel);
 		
-		JLabel sfas = new JLabel("id");
-		sfas.setBounds(60, 133, 107, 34);
-		contentPane.add(sfas);
+		idd = new JLabel("id");
+		idd.setBounds(60, 133, 107, 34);
+		contentPane.add(idd);
 		
-		JLabel lblNewLabel_1_1 = new JLabel("name");
-		lblNewLabel_1_1.setBounds(60, 205, 107, 34);
-		contentPane.add(lblNewLabel_1_1);
+		namee = new JLabel("name");
+		namee.setBounds(60, 205, 107, 34);
+		contentPane.add(namee);
 		
-		JLabel lblNewLabel_1_2 = new JLabel("address");
-		lblNewLabel_1_2.setBounds(60, 279, 107, 34);
-		contentPane.add(lblNewLabel_1_2);
+		addresss = new JLabel("address");
+		addresss.setBounds(60, 279, 107, 34);
+		contentPane.add(addresss);
 		
-		JLabel lblNewLabel_1_3 = new JLabel("phone");
-		lblNewLabel_1_3.setBounds(60, 357, 107, 34);
-		contentPane.add(lblNewLabel_1_3);
+		phonee = new JLabel("phone");
+		phonee.setBounds(60, 357, 107, 34);
+		contentPane.add(phonee);
 		
 		id = new JTextField();
 		id.setBounds(231, 141, 229, 26);
