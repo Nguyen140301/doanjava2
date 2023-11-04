@@ -5,6 +5,8 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JTextField;
+
 import entities.Account;
 import entities.User;
 
@@ -110,6 +112,8 @@ public class UserModel {
 		}
 		return user;
 	}
+	
+	
 	
 	
 	
