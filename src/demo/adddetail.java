@@ -1,182 +1,206 @@
 package demo;
 
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.SwingConstants;
+import javax.swing.JTextField;
+import com.toedter.calendar.JDateChooser;
 
 import entities.Details;
 import entities.User;
 import models.DetailsModel;
 import models.UserModel;
 
-import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.Color;
-import javax.swing.JTextField;
 import javax.swing.JButton;
-import com.toedter.calendar.JDateChooser;
-import javax.swing.JComboBox;
-import java.awt.BorderLayout;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class adddetail extends JPanel {
+public class adddetail extends JFrame {
 
-	private static final long serialVersionUID = 1L;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JTextField textField_6;
-	private JTextField textField_7;
+	private JPanel contentPane;
+	private JTextField idbook;
+	private JTextField isbn;
+	private JTextField author;
+	private JTextField nameuser;
+	private JTextField callnumber;
+	private JTextField title;
+	private JTextField iduser;
+	private JTextField status;
+	private JDateChooser duedate;
+	private JLabel avda;
+	private JDateChooser checkoutdate;
+	private JButton cancel;
 
 	/**
-	 * Create the panel.
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					adddetail frame = new adddetail();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
 	 */
 	public adddetail() {
-		setLayout(new BorderLayout(0, 0));
-		
-		JPanel panel = new JPanel();
-		panel.setBackground(new Color(26, 179, 230));
-		add(panel, BorderLayout.CENTER);
-		panel.setLayout(null);
-		
-		JLabel lblNewLabel = new JLabel("DETAILS");
-		lblNewLabel.setBounds(183, 11, 135, 41);
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setForeground(new Color(0, 0, 160));
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 28));
-		lblNewLabel.setBackground(new Color(128, 255, 255));
-		panel.add(lblNewLabel);
-		
-		JLabel jLabelId_book = new JLabel("ID Book");
-		jLabelId_book.setBounds(10, 67, 61, 17);
-		jLabelId_book.setHorizontalAlignment(SwingConstants.CENTER);
-		jLabelId_book.setForeground(new Color(0, 0, 128));
-		jLabelId_book.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		panel.add(jLabelId_book);
-		
-		textField = new JTextField();
-		textField.setBounds(81, 67, 119, 20);
-		textField.setColumns(10);
-		panel.add(textField);
-		
-		JLabel jLabelCallnumber = new JLabel("Call Number");
-		jLabelCallnumber.setBounds(229, 67, 85, 17);
-		jLabelCallnumber.setHorizontalAlignment(SwingConstants.CENTER);
-		jLabelCallnumber.setForeground(new Color(0, 0, 128));
-		jLabelCallnumber.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		panel.add(jLabelCallnumber);
-		
-		JLabel jLabelISBN = new JLabel("ISBN");
-		jLabelISBN.setBounds(10, 114, 61, 17);
-		jLabelISBN.setHorizontalAlignment(SwingConstants.CENTER);
-		jLabelISBN.setForeground(new Color(0, 0, 128));
-		jLabelISBN.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		panel.add(jLabelISBN);
-		
-		JLabel jLabelTitle = new JLabel("Title");
-		jLabelTitle.setBounds(241, 114, 61, 17);
-		jLabelTitle.setHorizontalAlignment(SwingConstants.CENTER);
-		jLabelTitle.setForeground(new Color(0, 0, 128));
-		jLabelTitle.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		panel.add(jLabelTitle);
-		
-		JLabel jLabelAuthor = new JLabel("Author");
-		jLabelAuthor.setBounds(10, 161, 61, 17);
-		jLabelAuthor.setHorizontalAlignment(SwingConstants.CENTER);
-		jLabelAuthor.setForeground(new Color(0, 0, 128));
-		jLabelAuthor.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		panel.add(jLabelAuthor);
-		
-		JLabel jLabelID_User = new JLabel("ID User");
-		jLabelID_User.setBounds(241, 161, 61, 17);
-		jLabelID_User.setHorizontalAlignment(SwingConstants.CENTER);
-		jLabelID_User.setForeground(new Color(0, 0, 128));
-		jLabelID_User.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		panel.add(jLabelID_User);
-		
-		JLabel jLabelName_User = new JLabel("Name User");
-		jLabelName_User.setBounds(0, 206, 85, 17);
-		jLabelName_User.setHorizontalAlignment(SwingConstants.CENTER);
-		jLabelName_User.setForeground(new Color(0, 0, 128));
-		jLabelName_User.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		panel.add(jLabelName_User);
-		
-		textField_1 = new JTextField();
-		textField_1.setBounds(319, 67, 155, 20);
-		textField_1.setColumns(10);
-		panel.add(textField_1);
-		
-		textField_2 = new JTextField();
-		textField_2.setBounds(81, 114, 119, 20);
-		textField_2.setColumns(10);
-		panel.add(textField_2);
-		
-		textField_3 = new JTextField();
-		textField_3.setBounds(319, 114, 155, 20);
-		textField_3.setColumns(10);
-		panel.add(textField_3);
-		
-		textField_4 = new JTextField();
-		textField_4.setBounds(81, 161, 119, 20);
-		textField_4.setColumns(10);
-		panel.add(textField_4);
-		
-		textField_5 = new JTextField();
-		textField_5.setBounds(319, 161, 155, 20);
-		textField_5.setColumns(10);
-		panel.add(textField_5);
-		
-		textField_6 = new JTextField();
-		textField_6.setBounds(81, 206, 119, 20);
-		textField_6.setColumns(10);
-		panel.add(textField_6);
-		
-		JLabel lblCheckOutDate = new JLabel("Check Out Date");
-		lblCheckOutDate.setBounds(210, 209, 104, 17);
-		lblCheckOutDate.setHorizontalAlignment(SwingConstants.CENTER);
-		lblCheckOutDate.setForeground(new Color(0, 0, 128));
-		lblCheckOutDate.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		panel.add(lblCheckOutDate);
-		
-		JLabel lblDueDate = new JLabel("Due Date");
-		lblDueDate.setBounds(10, 257, 61, 17);
-		lblDueDate.setHorizontalAlignment(SwingConstants.CENTER);
-		lblDueDate.setForeground(new Color(0, 0, 128));
-		lblDueDate.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		panel.add(lblDueDate);
-		
-		JLabel lblStatus = new JLabel("Status");
-		lblStatus.setBounds(241, 260, 61, 17);
-		lblStatus.setHorizontalAlignment(SwingConstants.CENTER);
-		lblStatus.setForeground(new Color(0, 0, 128));
-		lblStatus.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		panel.add(lblStatus);
-		
-		JButton save = new JButton("Save");
-		save.setBounds(70, 347, 85, 21);
-		panel.add(save);
-		
-		JButton cancel = new JButton("cancel");
-		cancel.setBounds(338, 347, 85, 21);
-		panel.add(cancel);
-		
-		JDateChooser dateChooser = new JDateChooser();
-		dateChooser.setBounds(325, 207, 73, 19);
-		panel.add(dateChooser);
-		
-		JDateChooser duedate = new JDateChooser();
-		duedate.setBounds(82, 255, 73, 19);
-		panel.add(duedate);
-		
-		textField_7 = new JTextField();
-		textField_7.setBounds(319, 258, 96, 19);
-		textField_7.setColumns(10);
-		panel.add(textField_7);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 862, 512);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
 		
+		JLabel lblNewLabel = new JLabel("details");
+		lblNewLabel.setBounds(363, 26, 206, 27);
+		contentPane.add(lblNewLabel);
+		
+		JLabel asd = new JLabel("id_book");
+		asd.setBounds(27, 73, 79, 27);
+		contentPane.add(asd);
+		
+		JLabel sad = new JLabel("isbn");
+		sad.setBounds(27, 126, 97, 27);
+		contentPane.add(sad);
+		
+		JLabel dsf = new JLabel("author");
+		dsf.setBounds(27, 183, 114, 27);
+		contentPane.add(dsf);
+		
+		JLabel asddsv = new JLabel("name_user");
+		asddsv.setBounds(27, 235, 114, 27);
+		contentPane.add(asddsv);
+		
+		JLabel asdasfv = new JLabel("due_date");
+		asdasfv.setBounds(27, 288, 97, 27);
+		contentPane.add(asdasfv);
+		
+		JLabel vadv = new JLabel("status");
+		vadv.setBounds(400, 309, 114, 27);
+		contentPane.add(vadv);
+		
+		avda = new JLabel("check_out_date");
+		avda.setBounds(408, 254, 143, 27);
+		contentPane.add(avda);
+		
+		JLabel asfvd = new JLabel("callnumber");
+		asfvd.setBounds(408, 80, 107, 27);
+		contentPane.add(asfvd);
+		
+		JLabel asfvvd = new JLabel("title");
+		asfvvd.setBounds(408, 133, 89, 27);
+		contentPane.add(asfvvd);
+		
+		JLabel avad = new JLabel("id_user");
+		avad.setBounds(408, 194, 89, 27);
+		contentPane.add(avad);
+		
+		idbook = new JTextField();
+		idbook.setBounds(105, 77, 96, 19);
+		contentPane.add(idbook);
+		idbook.setColumns(10);
+		
+		isbn = new JTextField();
+		isbn.setColumns(10);
+		isbn.setBounds(105, 130, 96, 19);
+		contentPane.add(isbn);
+		
+		author = new JTextField();
+		author.setColumns(10);
+		author.setBounds(105, 187, 96, 19);
+		contentPane.add(author);
+		
+		nameuser = new JTextField();
+		nameuser.setColumns(10);
+		nameuser.setBounds(105, 239, 96, 19);
+		contentPane.add(nameuser);
+		
+		callnumber = new JTextField();
+		callnumber.setColumns(10);
+		callnumber.setBounds(498, 84, 96, 19);
+		contentPane.add(callnumber);
+		
+		title = new JTextField();
+		title.setColumns(10);
+		title.setBounds(498, 137, 96, 19);
+		contentPane.add(title);
+		
+		iduser = new JTextField();
+		iduser.setColumns(10);
+		iduser.setBounds(483, 198, 96, 19);
+		contentPane.add(iduser);
+		
+		status = new JTextField();
+		status.setColumns(10);
+		status.setBounds(473, 313, 96, 19);
+		contentPane.add(status);
+		
+		duedate = new JDateChooser();
+		duedate.setBounds(105, 296, 73, 19);
+		contentPane.add(duedate);
+		
+		checkoutdate = new JDateChooser();
+		checkoutdate.setBounds(521, 254, 73, 19);
+		contentPane.add(checkoutdate);
+		
+		JButton save = new JButton("save");
+		save.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				save_actionPerformed(e);
+			}
+		});
+		save.setBounds(93, 420, 85, 21);
+		contentPane.add(save);
+		
+		cancel = new JButton("cancel");
+		cancel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cancel_actionPerformed(e);
+			}
+		});
+		cancel.setBounds(443, 420, 85, 21);
+		contentPane.add(cancel);
+	}
+	protected void save_actionPerformed(ActionEvent e) {
+		try {
+			DetailsModel detailsModel = new DetailsModel();
+			Details details = new Details();
+			details.setId_book(Integer.parseInt(idbook.getText()));
+			details.setIsbn(isbn.getText());
+			details.setAuthor(author.getText());
+			details.setName_user(nameuser.getText());
+			details.setDue_date(duedate.getDate());
+			details.setCallnumber(callnumber.getText());
+			details.setTitle(title.getText());
+			details.setId_user(Integer.parseInt(iduser.getText()));
+			details.setCheck_out_date(checkoutdate.getDate());
+			details.setIssue_status(status.getText());
+			if (detailsModel.create(details)) {
+				JOptionPane.showMessageDialog(null, "Success");
+				details tt = new details();
+				tt.setVisible(true);
+				this.setVisible(false);
+			} else {
+				JOptionPane.showMessageDialog(null, "Failed");
+			}
+		} catch (Exception e2) {
+			JOptionPane.showMessageDialog(null, e2.getMessage());
+		}
+	}
+	protected void cancel_actionPerformed(ActionEvent e) {
+		cancel.setVisible(true);
+		this.setVisible(false);
 	}
 }

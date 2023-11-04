@@ -47,7 +47,7 @@ public class DetailsModel {
 		try {
 			PreparedStatement preparedStatement = ConnectDB.connection()
 				.prepareStatement
-("insert into nhanvien(id_book, callnumber, isbn, title, author, id_user, name_user, check_out_date, due_date, issue_status) values(?,?,?,?,?,?,?,?,?,?)");
+("insert into details(id_book, callnumber, isbn, title, author, id_user, name_user, check_out_date, due_date, issue_status) values(?,?,?,?,?,?,?,?,?,?)");
 			preparedStatement.setInt(1, details.getId_book());
 			preparedStatement.setString(2, details.getCallnumber());
 			preparedStatement.setString(3, details.getIsbn());
@@ -72,7 +72,7 @@ public class DetailsModel {
 	public boolean Delete(int id) {
 		boolean result = true;
 		try {
-			PreparedStatement preparedStatement = ConnectDB.connection().prepareStatement("delete from user where id_book = ?");
+			PreparedStatement preparedStatement = ConnectDB.connection().prepareStatement("delete from details where id_book = ?");
 			preparedStatement.setInt(1, id);
 			result = preparedStatement.executeUpdate()>0;
 		} catch (Exception e) {

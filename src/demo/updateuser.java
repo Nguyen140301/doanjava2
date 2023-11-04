@@ -37,10 +37,6 @@ public class updateuser extends JFrame {
 	private JButton btnSave;
 
 	private Map<String, Object> data;
-	private JLabel idd;
-	private JLabel namee;
-	private JLabel addresss;
-	private JLabel phonee;
 
 
 	/**
@@ -87,20 +83,12 @@ public class updateuser extends JFrame {
 		lblNewLabel_1.setBounds(134, 100, 107, 31);
 		contentPane.add(lblNewLabel_1);
 
-		idd = new JLabel("id");
-		idd.setBounds(60, 133, 107, 34);
-		contentPane.add(idd);
-
 		JLabel lblNewLabel_1_1 = new JLabel("Name");
 		lblNewLabel_1_1.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNewLabel_1_1.setForeground(new Color(125, 125, 125));
 		lblNewLabel_1_1.setFont(new Font("Segoe UI", Font.PLAIN, 20));
 		lblNewLabel_1_1.setBounds(134, 164, 107, 31);
 		contentPane.add(lblNewLabel_1_1);
-
-		namee = new JLabel("name");
-		namee.setBounds(60, 205, 107, 34);
-		contentPane.add(namee);
 
 		JLabel lblNewLabel_1_2 = new JLabel("Address");
 		lblNewLabel_1_2.setHorizontalAlignment(SwingConstants.LEFT);
@@ -109,20 +97,12 @@ public class updateuser extends JFrame {
 		lblNewLabel_1_2.setBounds(134, 228, 107, 31);
 		contentPane.add(lblNewLabel_1_2);
 
-		addresss = new JLabel("address");
-		addresss.setBounds(60, 279, 107, 34);
-		contentPane.add(addresss);
-
 		JLabel lblNewLabel_1_3 = new JLabel("Phone");
 		lblNewLabel_1_3.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNewLabel_1_3.setForeground(new Color(134, 134, 134));
 		lblNewLabel_1_3.setFont(new Font("Segoe UI", Font.PLAIN, 20));
 		lblNewLabel_1_3.setBounds(134, 302, 107, 31);
 		contentPane.add(lblNewLabel_1_3);
-
-		phonee = new JLabel("phone");
-		phonee.setBounds(60, 357, 107, 34);
-		contentPane.add(phonee);
 
 		
 		
