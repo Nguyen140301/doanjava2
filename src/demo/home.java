@@ -95,6 +95,14 @@ public class home extends JFrame {
 				Exit_actionPerformed(e);
 			}
 		});
+		
+		JButton book = new JButton("book");
+		book.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				book_actionPerformed(e);
+			}
+		});
+		panel.add(book);
 		Exit.setContentAreaFilled(false);
 		Exit.setBorderPainted(false);
 		Exit.setBackground(Color.GRAY);
@@ -130,6 +138,13 @@ public class home extends JFrame {
 		panel_1.removeAll();
 		panel_1.revalidate();
 		panel_1.add(a);
+		panel_1.setVisible(true);
+	}
+	protected void book_actionPerformed(ActionEvent e) {
+		book book = new book();
+		panel_1.removeAll();
+		panel_1.revalidate();
+		panel_1.add(book);
 		panel_1.setVisible(true);
 	}
 }
