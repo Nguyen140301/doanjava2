@@ -71,7 +71,7 @@ public class home extends JFrame {
 		details.setFocusPainted(false);
 		details.setHorizontalAlignment(SwingConstants.LEFT);
 		details.setBackground(new Color(85, 65, 118));
-		details.setBounds(0, 272, 254, 44);
+		details.setBounds(0, 229, 254, 44);
 		details.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				details_actionPerformed(e);
@@ -121,7 +121,7 @@ public class home extends JFrame {
 		btnBook.setForeground(new Color(192, 192, 192));
 		btnBook.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnBook.setBorderPainted(false);
-		btnBook.setBounds(0, 398, 254, 44);
+		btnBook.setBounds(0, 314, 254, 44);
 		panel.add(btnBook);
 		
 				JButton in4 = new JButton("    Information users");
@@ -153,6 +153,21 @@ public class home extends JFrame {
 						btnHome.setAutoscrolls(true);
 						btnHome.setBounds(0, 0, 254, 149);
 						panel.add(btnHome);
+						
+						JButton btnFee = new JButton("       +          Fee");
+						btnFee.addActionListener(new ActionListener() {
+							public void actionPerformed(ActionEvent e) {
+								btnFee_actionPerformed(e);
+							}
+						});
+						btnFee.setHorizontalAlignment(SwingConstants.LEFT);
+						btnFee.setForeground(Color.LIGHT_GRAY);
+						btnFee.setFont(new Font("Tahoma", Font.PLAIN, 15));
+						btnFee.setFocusPainted(false);
+						btnFee.setBorderPainted(false);
+						btnFee.setBackground(new Color(85, 65, 118));
+						btnFee.setBounds(0, 399, 254, 44);
+						panel.add(btnFee);
 
 		panel_1 = new JPanel();
 		panel_1.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -215,6 +230,13 @@ public class home extends JFrame {
 		panel_1.removeAll();
 		panel_1.revalidate();
 		panel_1.add(book);
+		panel_1.setVisible(true);
+	}
+	protected void btnFee_actionPerformed(ActionEvent e) {
+		fee f = new fee(data);
+		panel_1.removeAll();
+		panel_1.revalidate();
+		panel_1.add(f);
 		panel_1.setVisible(true);
 	}
 }
