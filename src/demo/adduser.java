@@ -54,7 +54,7 @@ public class adduser extends JFrame {
 	 */
 	public adduser() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 952, 544);
+		setBounds(100, 100, 843, 514);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(193, 255, 193));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -63,7 +63,7 @@ public class adduser extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("ADD USERS");
-		lblNewLabel.setBounds(10, 29, 906, 42);
+		lblNewLabel.setBounds(10, 29, 817, 42);
 		lblNewLabel.setForeground(new Color(155, 155, 155));
 		lblNewLabel.setFont(new Font("Segoe UI", Font.BOLD, 25));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);

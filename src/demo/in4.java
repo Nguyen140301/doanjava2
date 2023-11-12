@@ -36,6 +36,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.border.LineBorder;
 
 public class in4 extends JPanel {
 	private JTable table;
@@ -50,12 +51,16 @@ public class in4 extends JPanel {
 		setLayout(new BorderLayout(0, 0));
 		
 		panel = new JPanel();
+		panel.setBackground(new Color(0, 206, 206));
+		panel.setBorder(new LineBorder(new Color(0, 0, 0)));
 		add(panel, BorderLayout.CENTER);
 		panel.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Information Users");
+		lblNewLabel.setForeground(new Color(128, 128, 128));
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
-		lblNewLabel.setBounds(296, 26, 274, 47);
+		lblNewLabel.setBounds(59, 26, 751, 47);
 		panel.add(lblNewLabel);
 		
 		scrollPane = new JScrollPane();
@@ -65,31 +70,40 @@ public class in4 extends JPanel {
 		table = new JTable();
 		scrollPane.setViewportView(table);
 		
-		JButton add = new JButton("add");
+		JButton add = new JButton("Add");
+		add.setForeground(new Color(72, 72, 72));
+		add.setFont(new Font("Segoe UI Semibold", Font.BOLD, 17));
+		add.setBackground(new Color(128, 255, 255));
 		add.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				add_actionPerformed(e);
 			}
 		});
-		add.setBounds(59, 416, 167, 52);
+		add.setBounds(129, 428, 103, 34);
 		panel.add(add);
 		
-		JButton delete = new JButton("delete");
+		JButton delete = new JButton("Delete");
+		delete.setFont(new Font("Segoe UI Semilight", Font.BOLD, 20));
+		delete.setForeground(new Color(72, 72, 72));
+		delete.setBackground(new Color(128, 255, 255));
 		delete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				delete_actionPerformed(e);
 			}
 		});
-		delete.setBounds(330, 410, 195, 65);
+		delete.setBounds(392, 426, 103, 35);
 		panel.add(delete);
 		
-		JButton update = new JButton("update");
+		JButton update = new JButton("Update");
+		update.setForeground(new Color(72, 72, 72));
+		update.setFont(new Font("Segoe UI Semilight", Font.BOLD, 20));
+		update.setBackground(new Color(128, 255, 255));
 		update.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				update_actionPerformed(e);
 			}
 		});
-		update.setBounds(586, 409, 132, 59);
+		update.setBounds(646, 426, 103, 34);
 		panel.add(update);
 	}
 	public in4(Map<String, Object>data) {
@@ -141,11 +155,11 @@ public class in4 extends JPanel {
 	protected void add_actionPerformed(ActionEvent e) {
 		adduser add = new adduser();
 		add.setVisible(true);
-		this.setVisible(false);
+		
 	}
 	protected void update_actionPerformed(ActionEvent e) {
 		updateuser c = new updateuser();
 		c.setVisible(true);
-		this.setVisible(false);
+		
 	}
 }

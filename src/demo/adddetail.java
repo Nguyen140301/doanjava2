@@ -17,24 +17,32 @@ import models.UserModel;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.Calendar;
+import java.util.Date;
 import java.awt.event.ActionEvent;
+import javax.swing.SwingConstants;
+import java.awt.Font;
+import javax.swing.border.LineBorder;
+import java.awt.Color;
 
 public class adddetail extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField idbook;
-	private JTextField isbn;
 	private JTextField author;
 	private JTextField nameuser;
-	private JTextField callnumber;
 	private JTextField title;
 	private JTextField iduser;
 	private JTextField status;
-	private JDateChooser duedate;
 	private JLabel avda;
 	private JDateChooser checkoutdate;
 	private JButton cancel;
-
+	private JLabel lblNewLabel_2;
+	private JLabel lblNewLabel_3;
+	private JLabel lblNewLabel_4;
+	private JLabel lblNewLabel_5;
+	private JLabel lblNewLabel_6;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -56,136 +64,172 @@ public class adddetail extends JFrame {
 	 */
 	public adddetail() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 862, 512);
+		setBounds(100, 100, 752, 512);
 		contentPane = new JPanel();
+		contentPane.setAutoscrolls(true);
+		contentPane.setBackground(new Color(192, 192, 192));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("details");
-		lblNewLabel.setBounds(363, 26, 206, 27);
+		JLabel lblNewLabel = new JLabel("Details");
+		lblNewLabel.setFont(new Font("Segoe UI", Font.BOLD | Font.ITALIC, 20));
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setBounds(27, 26, 684, 27);
 		contentPane.add(lblNewLabel);
 		
 		JLabel asd = new JLabel("id_book");
-		asd.setBounds(27, 73, 79, 27);
+		asd.setFont(new Font("Segoe UI Semibold", Font.BOLD, 14));
+		asd.setBounds(76, 133, 60, 27);
 		contentPane.add(asd);
 		
-		JLabel sad = new JLabel("isbn");
-		sad.setBounds(27, 126, 97, 27);
-		contentPane.add(sad);
-		
 		JLabel dsf = new JLabel("author");
-		dsf.setBounds(27, 183, 114, 27);
+		dsf.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 14));
+		dsf.setBounds(76, 183, 60, 27);
 		contentPane.add(dsf);
 		
 		JLabel asddsv = new JLabel("name_user");
-		asddsv.setBounds(27, 235, 114, 27);
+		asddsv.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 14));
+		asddsv.setBounds(76, 246, 89, 27);
 		contentPane.add(asddsv);
 		
-		JLabel asdasfv = new JLabel("due_date");
-		asdasfv.setBounds(27, 288, 97, 27);
-		contentPane.add(asdasfv);
-		
 		JLabel vadv = new JLabel("status");
-		vadv.setBounds(400, 309, 114, 27);
+		vadv.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 14));
+		vadv.setBounds(76, 309, 89, 27);
 		contentPane.add(vadv);
 		
 		avda = new JLabel("check_out_date");
-		avda.setBounds(408, 254, 143, 27);
+		avda.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 14));
+		avda.setBounds(433, 246, 102, 27);
 		contentPane.add(avda);
 		
-		JLabel asfvd = new JLabel("callnumber");
-		asfvd.setBounds(408, 80, 107, 27);
-		contentPane.add(asfvd);
-		
 		JLabel asfvvd = new JLabel("title");
-		asfvvd.setBounds(408, 133, 89, 27);
+		asfvvd.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 14));
+		asfvvd.setBounds(433, 133, 89, 27);
 		contentPane.add(asfvvd);
 		
 		JLabel avad = new JLabel("id_user");
-		avad.setBounds(408, 194, 89, 27);
+		avad.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 14));
+		avad.setBounds(433, 183, 89, 27);
 		contentPane.add(avad);
 		
 		idbook = new JTextField();
-		idbook.setBounds(105, 77, 96, 19);
+		idbook.setBorder(new LineBorder(new Color(192, 192, 192)));
+		idbook.setAutoscrolls(false);
+		idbook.setBackground(new Color(192, 192, 192));
+		idbook.setBounds(178, 133, 96, 19);
 		contentPane.add(idbook);
 		idbook.setColumns(10);
 		
-		isbn = new JTextField();
-		isbn.setColumns(10);
-		isbn.setBounds(105, 130, 96, 19);
-		contentPane.add(isbn);
-		
 		author = new JTextField();
+		author.setBorder(new LineBorder(new Color(192, 192, 192)));
+		author.setBackground(new Color(192, 192, 192));
 		author.setColumns(10);
-		author.setBounds(105, 187, 96, 19);
+		author.setBounds(178, 183, 96, 19);
 		contentPane.add(author);
 		
 		nameuser = new JTextField();
+		nameuser.setBorder(new LineBorder(new Color(192, 192, 192)));
+		nameuser.setBackground(new Color(192, 192, 192));
 		nameuser.setColumns(10);
-		nameuser.setBounds(105, 239, 96, 19);
+		nameuser.setBounds(175, 246, 96, 19);
 		contentPane.add(nameuser);
 		
-		callnumber = new JTextField();
-		callnumber.setColumns(10);
-		callnumber.setBounds(498, 84, 96, 19);
-		contentPane.add(callnumber);
-		
 		title = new JTextField();
+		title.setBorder(new LineBorder(new Color(192, 192, 192)));
+		title.setBackground(new Color(192, 192, 192));
 		title.setColumns(10);
-		title.setBounds(498, 137, 96, 19);
+		title.setBounds(515, 133, 96, 19);
 		contentPane.add(title);
 		
 		iduser = new JTextField();
+		iduser.setBorder(new LineBorder(new Color(192, 192, 192)));
+		iduser.setBackground(new Color(192, 192, 192));
 		iduser.setColumns(10);
-		iduser.setBounds(483, 198, 96, 19);
+		iduser.setBounds(515, 183, 96, 19);
 		contentPane.add(iduser);
 		
 		status = new JTextField();
+		status.setBackground(new Color(192, 192, 192));
+		status.setBorder(new LineBorder(new Color(192, 192, 192)));
 		status.setColumns(10);
-		status.setBounds(473, 313, 96, 19);
+		status.setBounds(178, 309, 96, 19);
 		contentPane.add(status);
 		
-		duedate = new JDateChooser();
-		duedate.setBounds(105, 296, 73, 19);
-		contentPane.add(duedate);
-		
 		checkoutdate = new JDateChooser();
-		checkoutdate.setBounds(521, 254, 73, 19);
+		checkoutdate.setBackground(new Color(192, 192, 192));
+		checkoutdate.setBorder(new LineBorder(new Color(192, 192, 192)));
+		checkoutdate.setBounds(564, 246, 110, 27);
 		contentPane.add(checkoutdate);
 		
 		JButton save = new JButton("save");
+		save.setBackground(new Color(225, 225, 225));
+		save.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		save.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				save_actionPerformed(e);
 			}
 		});
-		save.setBounds(93, 420, 85, 21);
+		save.setBounds(189, 403, 85, 34);
 		contentPane.add(save);
 		
 		cancel = new JButton("cancel");
+		cancel.setBackground(new Color(225, 225, 225));
+		cancel.setFont(new Font("Tahoma", Font.PLAIN, 19));
 		cancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cancel_actionPerformed(e);
 			}
 		});
-		cancel.setBounds(443, 420, 85, 21);
+		cancel.setBounds(486, 403, 96, 34);
 		contentPane.add(cancel);
+		
+		JLabel lblNewLabel_1 = new JLabel("______________");
+		lblNewLabel_1.setForeground(new Color(255, 255, 255));
+		lblNewLabel_1.setBounds(177, 141, 110, 14);
+		contentPane.add(lblNewLabel_1);
+		
+		lblNewLabel_2 = new JLabel("______________");
+		lblNewLabel_2.setForeground(Color.WHITE);
+		lblNewLabel_2.setBounds(178, 191, 110, 19);
+		contentPane.add(lblNewLabel_2);
+		
+		lblNewLabel_3 = new JLabel("______________");
+		lblNewLabel_3.setForeground(Color.WHITE);
+		lblNewLabel_3.setBounds(175, 254, 110, 14);
+		contentPane.add(lblNewLabel_3);
+		
+		lblNewLabel_4 = new JLabel("______________");
+		lblNewLabel_4.setForeground(Color.WHITE);
+		lblNewLabel_4.setBounds(175, 315, 110, 19);
+		contentPane.add(lblNewLabel_4);
+		
+		lblNewLabel_5 = new JLabel("______________");
+		lblNewLabel_5.setForeground(Color.WHITE);
+		lblNewLabel_5.setBounds(513, 139, 110, 19);
+		contentPane.add(lblNewLabel_5);
+		
+		lblNewLabel_6 = new JLabel("______________");
+		lblNewLabel_6.setForeground(Color.WHITE);
+		lblNewLabel_6.setBounds(515, 189, 110, 19);
+		contentPane.add(lblNewLabel_6);
 	}
 	protected void save_actionPerformed(ActionEvent e) {
 		try {
 			DetailsModel detailsModel = new DetailsModel();
 			Details details = new Details();
 			details.setId_book(Integer.parseInt(idbook.getText()));
-			details.setIsbn(isbn.getText());
 			details.setAuthor(author.getText());
 			details.setName_user(nameuser.getText());
-			details.setDue_date(duedate.getDate());
-			details.setCallnumber(callnumber.getText());
 			details.setTitle(title.getText());
 			details.setId_user(Integer.parseInt(iduser.getText()));
 			details.setCheck_out_date(checkoutdate.getDate());
+			Calendar calendar = Calendar.getInstance();
+		    calendar.setTime(checkoutdate.getDate());
+			calendar.add(Calendar.DAY_OF_MONTH, 5);
+			Date d = calendar.getTime();
+			details.setDue_date(d);
 			details.setIssue_status(status.getText());
 			if (detailsModel.create(details)) {
 				JOptionPane.showMessageDialog(null, "Success");

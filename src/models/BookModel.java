@@ -96,4 +96,29 @@ public class BookModel {
 		}
 		return result;
 	}
+	
+	public List<Book> Search( String title){
+		List<Book> books = new ArrayList<Book>();
+		try {
+			PreparedStatement preparedStatement=ConnectDB.connection()
+					.prepareStatement("select * from book where title like ?");
+			preparedStatement.setString(1, title + "%" );
+			ResultSet resultSet = preparedStatement.executeQuery();
+			while (resultSet.next()) {
+				Book book = new Book();
+				book.setId(resultSet.getInt("id"));
+				book.setAuthor(resultSet.getString("author"));
+				book.setIsbn(resultSet.getString("isbn"));
+				book.setTitle(resultSet.getString("title"));
+				book.setCallnumber(resultSet.getString("callnumber"));
+				book.setSequence(resultSet.getInt("sequence"));
+				books.add(book);
+			}
+			ConnectDB.disconnect();
+		} catch (Exception e) {
+			e.printStackTrace();
+			ConnectDB.disconnect();
+		}
+		return books;
+	}
 }
