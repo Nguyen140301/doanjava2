@@ -165,10 +165,8 @@ public class addbook extends JFrame {
 			if (bookModel.create(book)) {
 				JOptionPane.showMessageDialog(null, "Success");
 				book a = new book();
-				this.removeAll();
-				this.revalidate();
-				getContentPane().add(a);
-				this.setVisible(true);
+				a.setVisible(true);
+				this.setVisible(false);
 			}else {
 				JOptionPane.showMessageDialog(null, "Failed");
 			}

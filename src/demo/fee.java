@@ -8,13 +8,20 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import entities.Details;
 import entities.Fee;
 import entities.User;
+import models.DetailsModel;
 import models.FeeModel;
 import models.UserModel;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -60,7 +67,19 @@ public class fee extends JPanel {
 		initJFrame();
 	}
 	private void initJFrame() {
+		
 		FeeModel feeModel =new FeeModel();
+		DetailsModel detailsModel = new DetailsModel();
+		Fee fee = new Fee();
+		Details detailss = new Details();
+		for (Details details : detailsModel.fillAll()) {
+			feeModel.generatefee(details);
+		}
+		fee.getName_user();
+		fee.getTitle();
+		fee.getReturn_date();
+		fee.getDue_date();
+		fee.getFee();
 		fillDataToJTable(feeModel.find());
 
 	}
@@ -73,17 +92,18 @@ public class fee extends JPanel {
 			}
 
 		};
-		FeeModel feeModel =new FeeModel();
+		
 		model.addColumn("name_user");
 		model.addColumn("title");
-		model.addColumn("check_out_date");
+		model.addColumn("return_date");
 		model.addColumn("due_date");
 		model.addColumn("fee");
-		for (Fee fee : fees) {
+		for (Fee detail : fees) {
 			model.addRow(new Object[] {
-					fee.getName_user(), fee.getTitle(), fee.getCheck_out_date(), fee.getDue_date(), fee.getFee()
+					detail.getName_user(), detail.getTitle(), detail.getReturn_date(), detail.getDue_date(), detail.getFee() 
 			});
 		}
+		
 		table.setModel(model);
 		table.getTableHeader().setReorderingAllowed(false);
 		table.setRowHeight(55);
@@ -102,5 +122,70 @@ public class fee extends JPanel {
 				JOptionPane.showMessageDialog(null, "Failed");
 			}
 		}
+	}
+	public fee(int id, int id_user) {
+		
+		this();
+		List<Fee> fees = new ArrayList<Fee>(); 
+		FeeModel feeModel =new FeeModel();
+		DetailsModel detailsModel = new DetailsModel();
+		Fee fee = new Fee();
+		Details detailss = new Details();
+		
+		for (Details details : detailsModel.fillAll()) {
+			feeModel.generatefee(details);
+			if(id == details.getId_book()&& id_user==details.getId_user()) {
+				SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+				
+				Date date;
+				try {
+					date = dateFormat.parse("2023-11-20");
+					
+					fee.setName_user(details.getName_user());
+					fee.setTitle(details.getTitle());
+					fee.setReturn_date(date);
+					
+					System.out.println("asd"+ fee.getReturn_date()+date);
+					fee.setDue_date(details.getDue_date());
+					fee.setFee(details.getFee());
+					fees.add(fee);
+				} catch (ParseException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				
+			}
+			
+			
+		}
+
+		fillDataToJTable2(fees);
+	}
+	
+	
+	private void fillDataToJTable2(List<Fee> fees) {
+		DefaultTableModel model = new DefaultTableModel() {
+			@Override
+			public boolean isCellEditable(int row, int column) {
+				return false;
+			}
+
+		};
+		
+		model.addColumn("name_user");
+		model.addColumn("title");
+		model.addColumn("return_date");
+		model.addColumn("due_date");
+		model.addColumn("fee");
+		for (Fee detail : fees) {
+			model.addRow(new Object[] {
+					detail.getName_user(), detail.getTitle(), detail.getReturn_date(), detail.getDue_date(), detail.getFee() 
+			});
+		}
+		
+		table.setModel(model);
+		table.getTableHeader().setReorderingAllowed(false);
+		table.setRowHeight(55);
 	}
 }

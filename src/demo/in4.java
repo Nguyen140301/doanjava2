@@ -82,18 +82,6 @@ public class in4 extends JPanel {
 		add.setBounds(129, 428, 103, 34);
 		panel.add(add);
 		
-		JButton delete = new JButton("Delete");
-		delete.setFont(new Font("Segoe UI Semilight", Font.BOLD, 20));
-		delete.setForeground(new Color(72, 72, 72));
-		delete.setBackground(new Color(128, 255, 255));
-		delete.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				delete_actionPerformed(e);
-			}
-		});
-		delete.setBounds(392, 426, 103, 35);
-		panel.add(delete);
-		
 		JButton update = new JButton("Update");
 		update.setForeground(new Color(72, 72, 72));
 		update.setFont(new Font("Segoe UI Semilight", Font.BOLD, 20));
@@ -139,19 +127,6 @@ public class in4 extends JPanel {
 		table.getTableHeader().setReorderingAllowed(false);
 		table.setRowHeight(55);
 	}	
-	protected void delete_actionPerformed(ActionEvent e) {
-		int result = JOptionPane.showConfirmDialog(null, "Are you sure?", "Confim", JOptionPane.YES_NO_CANCEL_OPTION);
-		if(result == JOptionPane.YES_OPTION) {
-			int selectedRow = table.getSelectedRow();
-			int id = Integer.parseInt(table.getValueAt(selectedRow, 0).toString());
-			UserModel userModel = new UserModel();
-			if(userModel.Delete(id)) {
-				fillDataToJTable(userModel.find());;
-			}else {
-				JOptionPane.showMessageDialog(null, "Failed");
-			}
-		}
-	}
 	protected void add_actionPerformed(ActionEvent e) {
 		adduser add = new adduser();
 		add.setVisible(true);

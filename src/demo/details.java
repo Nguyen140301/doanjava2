@@ -79,6 +79,17 @@ public class details extends JPanel {
 		scrollPane.setBounds(72, 228, 637, 298);
 		panel.add(scrollPane);
 		
+		JPopupMenu popupMenu = new JPopupMenu();
+		addPopup(scrollPane, popupMenu);
+		
+		JMenuItem mntmNewMenuItem = new JMenuItem("Return ");
+		mntmNewMenuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mntmNewMenuItem_actionPerformed(e);
+			}
+		});
+		popupMenu.add(mntmNewMenuItem);
+		
 		table = new JTable();
 		scrollPane.setViewportView(table);
 		
@@ -99,18 +110,8 @@ public class details extends JPanel {
 				delete_actionPerformed(e);
 			}
 		});
-		delete.setBounds(326, 571, 113, 35);
+		delete.setBounds(561, 571, 113, 35);
 		panel.add(delete);
-		
-		JButton update = new JButton("update");
-		update.setFont(new Font("Tahoma", Font.BOLD, 20));
-		update.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				update_actionPerformed(e);
-			}
-		});
-		update.setBounds(555, 571, 113, 35);
-		panel.add(update);
 		
 		JButton btnNewButton = new JButton("Search");
 		btnNewButton.setBorder(new LineBorder(new Color(66, 160, 255)));
@@ -132,6 +133,7 @@ public class details extends JPanel {
 		tsarch.setBounds(255, 126, 369, 30);
 		panel.add(tsarch);
 		tsarch.setColumns(10);
+		table.setComponentPopupMenu(popupMenu);
 	}
 	public details(Map<String, Object>data) {
 		this();
@@ -185,6 +187,7 @@ public class details extends JPanel {
 			DetailsModel detailsModel = new DetailsModel();
 			if(detailsModel.Delete(id)) {
 				fillDataToJTable(detailsModel.fillAll());;
+				
 			}else {
 				JOptionPane.showMessageDialog(null, "Failed");
 			}
@@ -195,11 +198,6 @@ public class details extends JPanel {
 		add.setVisible(true);
 		
 	}
-	protected void update_actionPerformed(ActionEvent e) {
-		updatedetails c = new updatedetails();
-		c.setVisible(true);
-		
-	}
 	
 	protected void do_textField_keyReleased(KeyEvent e) {
 		DetailsModel d = new  DetailsModel();
@@ -208,5 +206,35 @@ public class details extends JPanel {
 		fillDataToJTable(d.Seacrh(t,a));
 		
 		
+	}
+	private static void addPopup(Component component, final JPopupMenu popup) {
+		component.addMouseListener(new MouseAdapter() {
+			public void mousePressed(MouseEvent e) {
+				if (e.isPopupTrigger()) {
+					showMenu(e);
+				}
+			}
+			public void mouseReleased(MouseEvent e) {
+				if (e.isPopupTrigger()) {
+					showMenu(e);
+				}
+			}
+			private void showMenu(MouseEvent e) {
+				popup.show(e.getComponent(), e.getX(), e.getY());
+			}
+		});
+	}
+	protected void mntmNewMenuItem_actionPerformed(ActionEvent e) {
+		int result = JOptionPane.showConfirmDialog(null, "Are you sure?", "Confim", JOptionPane.YES_NO_CANCEL_OPTION);
+		if(result == JOptionPane.YES_OPTION) {
+			int selectedRow = table.getSelectedRow();
+			int id = Integer.parseInt(table.getValueAt(selectedRow, 0).toString());
+			int id_user = Integer.parseInt(table.getValueAt(selectedRow, 3).toString());
+			fee fee =new fee(id,id_user);
+			this.removeAll();
+			this.revalidate();
+			this.add(fee);
+			this.setVisible(true);
+		}
 	}
 }

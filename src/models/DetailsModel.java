@@ -31,6 +31,7 @@ public class DetailsModel {
 				detail.setCheck_out_date(resultSet.getDate("check_out_date"));
 				detail.setDue_date(resultSet.getDate("due_date"));
 				detail.setIssue_status(resultSet.getString("issue_status"));
+				detail.setFee(resultSet.getDouble("fee"));
 				details.add(detail);
 			}
 		} catch (Exception e) {
@@ -59,6 +60,7 @@ public class DetailsModel {
 			preparedStatement.setDate(6, new java.sql.Date(details.getCheck_out_date().getTime()));
 			preparedStatement.setDate(7, new java.sql.Date(details.getDue_date().getTime()));
 			preparedStatement.setString(8, details.getIssue_status());
+			
 			result = preparedStatement.executeUpdate() > 0;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -104,6 +106,7 @@ public class DetailsModel {
 				detail.setCheck_out_date(resultSet.getDate("check_out_date"));
 				detail.setDue_date(resultSet.getDate("due_date"));
 				detail.setIssue_status(resultSet.getString("issue_status"));
+				detail.setFee(resultSet.getDouble("fee"));
 				details.add(detail);
 			}
 		} catch (Exception e) {

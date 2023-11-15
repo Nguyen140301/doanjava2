@@ -13,6 +13,28 @@ public class Details {
 	private Date check_out_date;
 	private Date due_date;
 	private String issue_status;
+	private Double fee;
+	public Details(int id_book, String callnumber, String isbn, String title, String author, int id_user,
+			String name_user, Date check_out_date, Date due_date, String issue_status, Double fee) {
+		super();
+		this.id_book = id_book;
+		this.callnumber = callnumber;
+		this.isbn = isbn;
+		this.title = title;
+		this.author = author;
+		this.id_user = id_user;
+		this.name_user = name_user;
+		this.check_out_date = check_out_date;
+		this.due_date = due_date;
+		this.issue_status = issue_status;
+		this.fee = fee;
+	}
+	public Double getFee() {
+		return fee;
+	}
+	public void setFee(Double fee) {
+		this.fee = fee;
+	}
 	public int getId_book() {
 		return id_book;
 	}

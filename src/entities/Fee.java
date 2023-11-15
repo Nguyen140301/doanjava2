@@ -5,7 +5,7 @@ import java.util.Date;
 public class Fee {
 	private String name_user;
 	private String title;
-	private Date check_out_date;
+	private Date return_date;
 	private Date due_date;
 	private Double fee;
 	public String getName_user() {
@@ -20,11 +20,11 @@ public class Fee {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public Date getCheck_out_date() {
-		return check_out_date;
+	public Date getReturn_date() {
+		return return_date;
 	}
-	public void setCheck_out_date(Date check_out_date) {
-		this.check_out_date = check_out_date;
+	public void setReturn_date(Date Return_date) {
+		this.return_date = return_date;
 	}
 	public Date getDue_date() {
 		return due_date;
@@ -38,11 +38,11 @@ public class Fee {
 	public void setFee(Double fee) {
 		this.fee = fee;
 	}
-	public Fee(String name_user, String title, Date check_out_date, Date due_date, Double fee) {
+	public Fee(String name_user, String title, Date return_date, Date due_date, Double fee) {
 		super();
 		this.name_user = name_user;
 		this.title = title;
-		this.check_out_date = check_out_date;
+		this.return_date = return_date;
 		this.due_date = due_date;
 		this.fee = fee;
 	}
