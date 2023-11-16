@@ -3,9 +3,11 @@ package models;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 import demo.details;
 import entities.Book;
@@ -73,26 +75,58 @@ public class FeeModel {
 			
 			if (resultSet.next()) {
 				Date duedate = resultSet.getDate("due_date");
-				if(detailss.getDue_date().after(duedate)) {
-					long dayslate = (detailss.getDue_date().getTime()- duedate.getTime())/(24*60*60*1000);
-					double fee = dayslate*10;
+				Date returndate = new Date();
+				Calendar returnCalendar  = Calendar.getInstance();
+				returnCalendar.setTime(returndate);
+				Calendar duedateCalendar  = Calendar.getInstance();
+				duedateCalendar.setTime(duedate);
+				long overday = tinhngay(duedate, returndate);
+				
+				
+				if(overday>0) {
+					double latefee = overday * 10;
 					PreparedStatement preparedStatementt=ConnectDB.connection()
 							.prepareStatement("update details set fee = ? where id_user =? and id_book = ?");
-					preparedStatementt.setDouble(1, fee);
+					preparedStatementt.setDouble(1, latefee);
 					preparedStatementt.setInt(2, detailss.getId_user());
 					preparedStatementt.setInt(3, detailss.getId_book());
 					preparedStatementt.executeUpdate();
-					System.out.println("fee:"+ fee);
-				}else {
-					System.out.println("oke");
 				}
 				
-			}else {
-				System.out.println("ko cos nguowif mu0ownj sachs");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
+	}
+	
+	private static long tinhngay(Date duedate,  Date returndate) {
+		long diff = returndate.getTime() - duedate.getTime();
+		return TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
+	}
+	
+	
+	public List<Fee> findall() {
+		List<Fee> fees = new ArrayList<Fee>();
+		try {
+			PreparedStatement preparedStatement = ConnectDB.connection()
+				.prepareStatement("select * from fee");
+			ResultSet resultSet = preparedStatement.executeQuery();
+			while(resultSet.next()) {
+				Fee user = new Fee();
+				user.setName_user(resultSet.getString("name_user"));
+				user.setTitle(resultSet.getString("title"));
+				user.setReturn_date(new java.sql.Date(resultSet.getDate("return_date").getTime()));
+				user.setDue_date(new java.sql.Date(resultSet.getDate("due_date").getTime()));
+				user.setFee(resultSet.getDouble("fee"));
+				fees.add(user);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			fees = null;
+		} finally {
+			ConnectDB.disconnect();
+		}
+		return fees;
 	}
 }

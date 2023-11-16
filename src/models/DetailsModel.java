@@ -46,6 +46,7 @@ public class DetailsModel {
 	}
 	public boolean create(Details details) {
 		boolean result = true;
+		FeeModel feeModel = new FeeModel();
 		try {
 			PreparedStatement preparedStatement = ConnectDB.connection()
 				.prepareStatement

@@ -69,18 +69,7 @@ public class fee extends JPanel {
 	private void initJFrame() {
 		
 		FeeModel feeModel =new FeeModel();
-		DetailsModel detailsModel = new DetailsModel();
-		Fee fee = new Fee();
-		Details detailss = new Details();
-		for (Details details : detailsModel.fillAll()) {
-			feeModel.generatefee(details);
-		}
-		fee.getName_user();
-		fee.getTitle();
-		fee.getReturn_date();
-		fee.getDue_date();
-		fee.getFee();
-		fillDataToJTable(feeModel.find());
+		fillDataToJTable(feeModel.findall());
 
 	}
 
@@ -117,7 +106,7 @@ public class fee extends JPanel {
 			String name_user = (String) table.getValueAt(selectedRow, 0);
 			FeeModel feeModel =new FeeModel();
 			if(feeModel.Delete(name_user)) {
-				fillDataToJTable(feeModel.find());;
+				fillDataToJTable2(feeModel.find());;
 			}else {
 				JOptionPane.showMessageDialog(null, "Failed");
 			}
@@ -131,26 +120,31 @@ public class fee extends JPanel {
 		DetailsModel detailsModel = new DetailsModel();
 		Fee fee = new Fee();
 		Details detailss = new Details();
-		
+		Date returndate = new Date();
 		for (Details details : detailsModel.fillAll()) {
 			feeModel.generatefee(details);
+			
+			
+			
+			
+		}
+		for (Details details : detailsModel.fillAll()) {
+			
 			if(id == details.getId_book()&& id_user==details.getId_user()) {
-				SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+				SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 				
-				Date date;
+				
 				try {
-					date = dateFormat.parse("2023-11-20");
+					
 					
 					fee.setName_user(details.getName_user());
 					fee.setTitle(details.getTitle());
-					fee.setReturn_date(date);
-					
-					System.out.println("asd"+ fee.getReturn_date()+date);
+					fee.setReturn_date(returndate);
 					fee.setDue_date(details.getDue_date());
 					fee.setFee(details.getFee());
 					fees.add(fee);
-				} catch (ParseException e) {
-					// TODO Auto-generated catch block
+				} catch (Exception e) {
+					// TODO: handle exception
 					e.printStackTrace();
 				}
 				
@@ -172,7 +166,9 @@ public class fee extends JPanel {
 			}
 
 		};
-		
+		Date returndatee = new Date();
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		String returndate = dateFormat.format(returndatee);
 		model.addColumn("name_user");
 		model.addColumn("title");
 		model.addColumn("return_date");
@@ -180,7 +176,7 @@ public class fee extends JPanel {
 		model.addColumn("fee");
 		for (Fee detail : fees) {
 			model.addRow(new Object[] {
-					detail.getName_user(), detail.getTitle(), detail.getReturn_date(), detail.getDue_date(), detail.getFee() 
+					detail.getName_user(), detail.getTitle(), returndate, detail.getDue_date(), detail.getFee() 
 			});
 		}
 		
