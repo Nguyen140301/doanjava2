@@ -9,6 +9,8 @@ import java.util.List;
 
 import org.mindrot.jbcrypt.BCrypt;
 
+import com.toedter.calendar.IDateEditor;
+
 import entities.Details;
 import entities.Book;
 
@@ -18,6 +20,39 @@ public class DetailsModel {
 		try {
 			PreparedStatement preparedStatement=ConnectDB.connection()
 					.prepareStatement("select * from details");
+			ResultSet resultSet=preparedStatement.executeQuery();
+			while(resultSet.next()) {
+				Details detail=new Details();
+				detail.setId_book(resultSet.getInt("id_book"));
+				detail.setCallnumber(resultSet.getString("callnumber"));
+				detail.setIsbn(resultSet.getString("isbn"));
+				detail.setTitle(resultSet.getString("title"));
+				detail.setAuthor(resultSet.getString("author"));
+				detail.setId_user(resultSet.getInt("id_user"));
+				detail.setName_user(resultSet.getString("name_user"));
+				detail.setCheck_out_date(resultSet.getDate("check_out_date"));
+				detail.setDue_date(resultSet.getDate("due_date"));
+				detail.setIssue_status(resultSet.getString("issue_status"));
+				detail.setFee(resultSet.getDouble("fee"));
+				details.add(detail);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			details= null;
+		}finally {
+			ConnectDB.disconnect();
+		}
+		
+		return details;
+		
+	}
+	//find id user id book 
+	public List<Details>  fillId(int id_book, int id_user) {
+		
+		List<Details> details = new ArrayList<Details>();
+		try {
+			PreparedStatement preparedStatement=ConnectDB.connection()
+					.prepareStatement("select * from book where id=? ");
 			ResultSet resultSet=preparedStatement.executeQuery();
 			while(resultSet.next()) {
 				Details detail=new Details();

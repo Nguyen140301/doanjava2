@@ -94,7 +94,7 @@ public class details extends JPanel {
 		scrollPane.setViewportView(table);
 		
 		JButton add = new JButton("Add");
-		add.setFont(new Font("Segoe UI", Font.BOLD, 20));
+		add.setFont(new Font("Segoe UI", Font.BOLD, 15));
 		add.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				add_actionPerformed(e);
@@ -103,8 +103,8 @@ public class details extends JPanel {
 		add.setBounds(104, 570, 113, 35);
 		panel.add(add);
 		
-		JButton delete = new JButton("delete");
-		delete.setFont(new Font("Tahoma", Font.BOLD, 20));
+		JButton delete = new JButton("Delete");
+		delete.setFont(new Font("Tahoma", Font.BOLD, 15));
 		delete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				delete_actionPerformed(e);
@@ -155,15 +155,15 @@ public class details extends JPanel {
 
 		};
 		DetailsModel detailsModel = new DetailsModel();
-		model.addColumn("id_book");
+		model.addColumn("Id book");
 		
-		model.addColumn("title");
-		model.addColumn("author");
-		model.addColumn("id_user");
-		model.addColumn("name_user");
-		model.addColumn("check_out_date");
-		model.addColumn("due_date");
-		model.addColumn("issue_status");
+		model.addColumn("Title");
+		model.addColumn("Author");
+		model.addColumn("Id user");
+		model.addColumn("Username");
+		model.addColumn("Check out date");
+		model.addColumn("Due date");
+		model.addColumn("Issue status");
 		
 		BookModel bookmodel = new BookModel();
 		Book book = new Book();

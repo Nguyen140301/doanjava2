@@ -53,6 +53,7 @@ public class addbook extends JFrame {
 	 * Create the frame.
 	 */
 	public addbook() {
+		setTitle("Add Book");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 605, 483);
 		contentPane = new JPanel();
@@ -69,17 +70,17 @@ public class addbook extends JFrame {
 		lblNewLabel.setBounds(125, 10, 330, 29);
 		contentPane.add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("tittle");
+		JLabel lblNewLabel_1 = new JLabel("Title");
 		lblNewLabel_1.setFont(new Font("Segoe UI Semibold", Font.BOLD, 15));
 		lblNewLabel_1.setBounds(72, 84, 46, 14);
 		contentPane.add(lblNewLabel_1);
 		
-		JLabel lblNewLabel_1_1 = new JLabel("sequence");
+		JLabel lblNewLabel_1_1 = new JLabel("Sequence");
 		lblNewLabel_1_1.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 16));
 		lblNewLabel_1_1.setBounds(72, 139, 79, 20);
 		contentPane.add(lblNewLabel_1_1);
 		
-		JLabel lblNewLabel_1_2 = new JLabel("author");
+		JLabel lblNewLabel_1_2 = new JLabel("Author");
 		lblNewLabel_1_2.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 16));
 		lblNewLabel_1_2.setBounds(72, 206, 79, 14);
 		contentPane.add(lblNewLabel_1_2);
@@ -108,7 +109,7 @@ public class addbook extends JFrame {
 		jtextField_author.setBounds(198, 200, 169, 20);
 		contentPane.add(jtextField_author);
 		
-		JButton btnNewButton = new JButton("add");
+		JButton btnNewButton = new JButton("Add");
 		btnNewButton.setBorder(new LineBorder(new Color(212, 212, 212)));
 		btnNewButton.setBackground(new Color(212, 212, 212));
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -120,7 +121,7 @@ public class addbook extends JFrame {
 		btnNewButton.setBounds(98, 309, 89, 29);
 		contentPane.add(btnNewButton);
 		
-		btnCancel = new JButton("cancel");
+		btnCancel = new JButton("Cancel");
 		btnCancel.setBorder(new LineBorder(new Color(212, 212, 212)));
 		btnCancel.setBackground(new Color(212, 212, 212));
 		btnCancel.setFont(new Font("Tahoma", Font.BOLD, 14));

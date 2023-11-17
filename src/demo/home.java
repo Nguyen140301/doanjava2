@@ -52,6 +52,7 @@ public class home extends JFrame {
 	 * Create the frame.
 	 */
 	public home() {
+		setTitle("Library management app");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1102, 700);
 		contentPane = new JPanel();
@@ -124,11 +125,11 @@ public class home extends JFrame {
 		btnBook.setBounds(0, 314, 254, 44);
 		panel.add(btnBook);
 		
-				JButton in4 = new JButton("    Information users");
+				JButton in4 = new JButton("    User information");
 				in4.setFocusPainted(false);
 				in4.setIcon(new ImageIcon(home.class.getResource("/asb/uq.png")));
 				in4.setBorderPainted(false);
-				in4.setBounds(0, 149, 254, 44);
+				in4.setBounds(0, 160, 254, 44);
 				panel.add(in4);
 				in4.setAutoscrolls(true);
 				in4.setBorder(new LineBorder(new Color(255, 255, 0)));
@@ -154,7 +155,7 @@ public class home extends JFrame {
 						btnHome.setBounds(0, 0, 254, 149);
 						panel.add(btnHome);
 						
-						JButton btnFee = new JButton("       +          Fee");
+						JButton btnFee = new JButton("       +          History");
 						btnFee.addActionListener(new ActionListener() {
 							public void actionPerformed(ActionEvent e) {
 								btnFee_actionPerformed(e);
@@ -186,7 +187,7 @@ public class home extends JFrame {
 		panel_2.add(panel_3);
 		panel_3.setLayout(null);
 		
-		JLabel lblNewLabel_1 = new JLabel("Libary");
+		JLabel lblNewLabel_1 = new JLabel("Library");
 		lblNewLabel_1.setForeground(new Color(192, 192, 192));
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 25));
